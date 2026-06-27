@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 
 class Ticket {
     private String username;
@@ -57,6 +59,20 @@ class Ticket {
     }
 }
 
+
+class TicketManager{
+    HashMap<String,Ticket> ticketHashMap = new HashMap<>();
+    public void addTicket(String username,Ticket ticket){
+        if(!ticketHashMap.containsKey(username)){
+            ticketHashMap.put(username,ticket);
+        }else{
+            System.out.println("Username already Exists");
+        }
+    }
+
+
+
+}
 
 
 
