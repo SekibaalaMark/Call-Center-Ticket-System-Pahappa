@@ -96,6 +96,15 @@ class TicketManager{
         }
     }
 
+    public void searchTicketByCategory(String category){
+        for(String username : ticketHashMap.keySet()){
+            if(ticketHashMap.get(username).getCategory().strip().equalsIgnoreCase(category)){
+                System.out.println(ticketHashMap.get(username).toString());
+            }
+        }
+    }
+
+
 
 
 
