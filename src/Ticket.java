@@ -136,9 +136,17 @@ class TicketManager{
     public void updateTicketPriority(String username, String newPriority){
         if(ticketHashMap.containsKey(username)){
             ticketHashMap.get(username).setPriority(newPriority);
+        }else {
+            System.out.println("Username Unknow......");
         }
     }
 
+
+    public void viewTickets(){
+        for(String username : ticketHashMap.keySet()){
+            System.out.println(ticketHashMap.get(username).toString());
+        }
+    }
 
 
 
