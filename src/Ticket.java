@@ -14,14 +14,14 @@ class Ticket {
 
     Ticket(String username,String contactInformation, String category, String dateCreated,String description,
            String comment, String priority){
-        this.username = username;
+        this.username = username.strip().toLowerCase();
         this.contactInformation = contactInformation;
-        this.category = category;
+        this.category = category.strip().toLowerCase();
         this.dateCreated = dateCreated;
         this.description = description;
         this.comment = comment;
         this.priority = priority;
-        this.status = "Pending";
+        this.status = "pending";
     }
 
     public String getCategory() {
@@ -73,15 +73,15 @@ class TicketManager{
     HashMap<String,Ticket> ticketHashMap = new HashMap<>();
     public void addTicket(String username,Ticket ticket){
         if(!ticketHashMap.containsKey(username)){
-            ticketHashMap.put(username,ticket);
+            ticketHashMap.put(username.strip().toLowerCase(),ticket);
         }else{
             System.out.println("Username already Exists");
         }
     }
 
     public void deleteTicket(String username){
-        if(ticketHashMap.containsKey(username)){
-            ticketHashMap.remove(username);
+        if(ticketHashMap.containsKey(username.strip().toLowerCase())){
+            ticketHashMap.remove(username.strip().toLowerCase());
         }else{
             System.out.println("username Unknown");
         }
@@ -89,8 +89,8 @@ class TicketManager{
 
 
     public void searchTicketByUsername(String username){
-        if (ticketHashMap.containsKey(username)){
-            System.out.println(ticketHashMap.get(username).toString());
+        if (ticketHashMap.containsKey(username.strip().toLowerCase())){
+            System.out.println(ticketHashMap.get(username.strip().toLowerCase()).toString());
         }else{
             System.out.println("username unknown");
         }
@@ -147,10 +147,6 @@ class TicketManager{
             System.out.println(ticketHashMap.get(username).toString());
         }
     }
-
-
-
-
 }
 
 
