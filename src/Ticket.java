@@ -116,6 +116,13 @@ class TicketManager{
     }
 
 
+    public void updateComment(String username, String newComment){
+        if(ticketHashMap.containsKey(username)){
+            ticketHashMap.get(username).setComment(newComment);
+        }
+    }
+
+
 
 
 
