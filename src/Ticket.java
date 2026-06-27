@@ -29,7 +29,14 @@ class Ticket {
         }
     }
 
-
+    public void setStatus(String status){
+        if(status.strip().equalsIgnoreCase("Pending") || status.strip().equalsIgnoreCase("In Progress")
+                || status.strip().equalsIgnoreCase("Resolved")){
+            this.status = status;
+        }else{
+            System.out.println("Status Must be one of: Pending or In Progress or Resolved");
+        }
+    }
 
 
 
