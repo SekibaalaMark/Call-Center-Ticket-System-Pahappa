@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +22,14 @@ class Ticket {
         this.comment = comment;
         this.priority = priority;
         this.status = "Pending";
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getStatus(){
+        return status;
     }
 
     public void setComment(String comment){
@@ -69,6 +78,16 @@ class TicketManager{
             System.out.println("Username already Exists");
         }
     }
+
+    public void deleteTicket(String username){
+        if(ticketHashMap.containsKey(username)){
+            ticketHashMap.remove(username);
+        }else{
+            System.out.println("username Unknown");
+        }
+    }
+
+
 
 
 
