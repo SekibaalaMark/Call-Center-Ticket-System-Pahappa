@@ -7,10 +7,10 @@ class Ticket {
     private String description;
     private String comment;
     private String status;
-    private int priority;
+    private String priority;
 
     Ticket(String username,String contactInformation, String category, String dateCreated,String description,
-           String comment, int priority){
+           String comment, String priority){
         this.username = username;
         this.contactInformation = contactInformation;
         this.category = category;
@@ -38,6 +38,14 @@ class Ticket {
         }
     }
 
+    public void setPriority(String priority ){
+        if(priority.strip().equalsIgnoreCase("High") || priority.strip().equalsIgnoreCase("Moderate") ||
+                priority.strip().equalsIgnoreCase("Low")){
+            this.priority = priority;
+        }else {
+            System.out.println("Priority must be one of: High , Low, Moderate");
+        }
+    }
 
 
 }
