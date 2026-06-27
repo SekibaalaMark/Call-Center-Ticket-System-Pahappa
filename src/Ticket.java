@@ -116,9 +116,17 @@ class TicketManager{
     }
 
 
-    public void updateComment(String username, String newComment){
+    public void updateTicketComment(String username, String newComment){
         if(ticketHashMap.containsKey(username)){
             ticketHashMap.get(username).setComment(newComment);
+        }else{
+            System.out.println("Username Unknown....");
+        }
+    }
+
+    public void updateTicketStatus(String username , String newStatus){
+        if(ticketHashMap.containsKey(username)){
+            ticketHashMap.get(username).setStatus(newStatus);
         }
     }
 
