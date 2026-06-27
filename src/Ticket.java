@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -6,18 +7,18 @@ class Ticket {
     private String username;
     private String contactInformation;
     private String category;
-    private String dateCreated;
+    private LocalDate dateCreated;
     private String description;
     private String comment;
     private String status;
     private String priority;
 
-    Ticket(String username,String contactInformation, String category, String dateCreated,String description,
+    Ticket(String username,String contactInformation, String category,String description,
            String comment, String priority){
         this.username = username.strip().toLowerCase();
         this.contactInformation = contactInformation;
         this.category = category.strip().toLowerCase();
-        this.dateCreated = dateCreated;
+        this.dateCreated = LocalDate.now();
         this.description = description;
         this.comment = comment;
         this.priority = priority;
@@ -43,7 +44,7 @@ class Ticket {
     public void setStatus(String status){
         if(status.strip().equalsIgnoreCase("Pending") || status.strip().equalsIgnoreCase("In Progress")
                 || status.strip().equalsIgnoreCase("Resolved")){
-            this.status = status;
+            this.status = status.strip().toLowerCase();
         }else{
             System.out.println("Status Must be one of: Pending or In Progress or Resolved");
         }
@@ -72,7 +73,7 @@ class Ticket {
 class TicketManager{
     HashMap<String,Ticket> ticketHashMap = new HashMap<>();
     public void addTicket(String username,Ticket ticket){
-        if(!ticketHashMap.containsKey(username)){
+        if(!ticketHashMap.containsKey(username.strip().toLowerCase())){
             ticketHashMap.put(username.strip().toLowerCase(),ticket);
         }else{
             System.out.println("Username already Exists");
@@ -98,7 +99,7 @@ class TicketManager{
 
     public void searchTicketByCategory(String category){
         for(String username : ticketHashMap.keySet()){
-            if(ticketHashMap.get(username).getCategory().strip().equalsIgnoreCase(category)){
+            if(ticketHashMap.get(username).getCategory().strip().equalsIgnoreCase(category.strip())){
                 System.out.println(ticketHashMap.get(username).toString());
             }
         }
@@ -108,7 +109,7 @@ class TicketManager{
 
     public void searchTicketStatus(String status){
         for(String username : ticketHashMap.keySet()){
-            if(ticketHashMap.get(username).getStatus().strip().equalsIgnoreCase(status)){
+            if(ticketHashMap.get(username).getStatus().strip().equalsIgnoreCase(status.strip())){
                 System.out.println(ticketHashMap.get(username).toString());
             }
         }
@@ -117,16 +118,16 @@ class TicketManager{
 
 
     public void updateTicketComment(String username, String newComment){
-        if(ticketHashMap.containsKey(username)){
-            ticketHashMap.get(username).setComment(newComment);
+        if(ticketHashMap.containsKey(username.strip().toLowerCase())){
+            ticketHashMap.get(username.strip().toLowerCase()).setComment(newComment);
         }else{
             System.out.println("Username Unknown....");
         }
     }
 
     public void updateTicketStatus(String username , String newStatus){
-        if(ticketHashMap.containsKey(username)){
-            ticketHashMap.get(username).setStatus(newStatus);
+        if(ticketHashMap.containsKey(username.strip().toLowerCase())){
+            ticketHashMap.get(username.strip().toLowerCase()).setStatus(newStatus);
         }else{
             System.out.println("Username Unknown......");
         }
@@ -134,8 +135,8 @@ class TicketManager{
 
 
     public void updateTicketPriority(String username, String newPriority){
-        if(ticketHashMap.containsKey(username)){
-            ticketHashMap.get(username).setPriority(newPriority);
+        if(ticketHashMap.containsKey(username.strip().toLowerCase())){
+            ticketHashMap.get(username.strip().toLowerCase()).setPriority(newPriority);
         }else {
             System.out.println("Username Unknow......");
         }
