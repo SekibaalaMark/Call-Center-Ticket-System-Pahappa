@@ -21,6 +21,16 @@ class Ticket {
         this.status = "Pending";
     }
 
+    public void setComment(String comment){
+        if(!comment.isBlank()){
+            this.comment = comment;
+        }else {
+            System.out.println("Comment Can't be Blank");
+        }
+    }
+
+
+
 
 
 }
