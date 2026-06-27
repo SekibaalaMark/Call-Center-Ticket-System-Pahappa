@@ -106,6 +106,16 @@ class TicketManager{
 
 
 
+    public void searchTicketStatus(String status){
+        for(String username : ticketHashMap.keySet()){
+            if(ticketHashMap.get(username).getStatus().strip().equalsIgnoreCase(status)){
+                System.out.println(ticketHashMap.get(username).toString());
+            }
+        }
+
+    }
+
+
 
 
 
