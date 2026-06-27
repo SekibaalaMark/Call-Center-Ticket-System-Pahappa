@@ -88,6 +88,15 @@ class TicketManager{
     }
 
 
+    public void searchTicketByUsername(String username){
+        if (ticketHashMap.containsKey(username)){
+            System.out.println(ticketHashMap.get(username).toString());
+        }else{
+            System.out.println("username unknown");
+        }
+    }
+
+
 
 
 
