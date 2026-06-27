@@ -53,7 +53,7 @@ class Ticket {
     public void setPriority(String priority ){
         if(priority.strip().equalsIgnoreCase("High") || priority.strip().equalsIgnoreCase("Moderate") ||
                 priority.strip().equalsIgnoreCase("Low")){
-            this.priority = priority;
+            this.priority = priority.strip().toLowerCase();
         }else {
             System.out.println("Priority must be one of: High , Low, Moderate");
         }
