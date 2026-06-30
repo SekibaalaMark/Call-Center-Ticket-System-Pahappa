@@ -46,6 +46,15 @@ public class Main {
         ticketManager.updateTicketPriority(username,newPriority);
     }
 
+    static void searchTicketByUsername(TicketManager ticketManager){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter username: ");
+        String username = scanner.nextLine();
+        ticketManager.searchTicketByUsername(username);
+    }
+
+
+
 
 
 
@@ -79,13 +88,9 @@ public class Main {
                 } else if (option==4) {
                     handleUpdatingPriority(ticketManager);
                 } else if (option==5) {
-                    System.out.println("Enter username: ");
-                    String username = scanner.nextLine();
-                    ticketManager.searchTicketByUsername(username);
+                    searchTicketByUsername(ticketManager);
                 } else if (option==6) {
-                    System.out.println("Enter Category: ");
-                    String category = scanner.nextLine();
-                    ticketManager.searchTicketByCategory(category);
+
                 } else if (option==7) {
                     System.out.println("Enter Status: ");
                     String status = scanner.nextLine();
