@@ -67,6 +67,17 @@ public class Main {
         ticketManager.searchTicketStatus(status);
     }
 
+    static void handleTicketDeletion(TicketManager ticketManager){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter username: ");
+        String username = scanner.nextLine();
+        ticketManager.deleteTicket(username);
+    }
+
+    static void viewAllTickets(TicketManager ticketManager){
+        ticketManager.viewTickets();
+    }
+
 
 
 
@@ -88,35 +99,25 @@ public class Main {
 
     static void options( TicketManager ticketManager){
         Scanner scanner = new Scanner(System.in);
+
+        menuLoop:
         while(true){
             screen();
             try{
                 int option = scanner.nextInt();
                 scanner.nextLine();
-                if(option==1){
-                    handleAddingTicket(ticketManager);
-                } else if (option==2) {
-                    handleUpdatingComment(ticketManager);
-                } else if (option==3) {
-                    handleUpdatingStatus(ticketManager);
-                } else if (option==4) {
-                    handleUpdatingPriority(ticketManager);
-                } else if (option==5) {
-                    searchTicketByUsername(ticketManager);
-                } else if (option==6) {
-                    searchTicketByCategory(ticketManager);
-                } else if (option==7) {
-                    searchTicketByStatus();
-                } else if (option==8) {
-                    System.out.println("Enter username: ");
-                    String username = scanner.nextLine();
-                    ticketManager.deleteTicket(username);
-                } else if (option==9) {
-                    ticketManager.viewTickets();
-                } else if (option==0) {
-                    break;
-                }else {
-                    System.out.println("Invalid Option!!!");
+                switch (option){
+                    case 1 : handleAddingTicket(ticketManager);break;
+                    case 2: handleUpdatingComment(ticketManager);break;
+                    case 3: handleUpdatingStatus(ticketManager);break;
+                    case 4: handleUpdatingPriority(ticketManager);break;
+                    case 5: searchTicketByUsername(ticketManager);break;
+                    case 6: searchTicketByCategory(ticketManager);break;
+                    case 7: searchTicketByStatus(ticketManager);break;
+                    case 8: handleTicketDeletion(ticketManager);break;
+                    case 9: viewAllTickets(ticketManager);break;
+                    case 0: break menuLoop;
+                    default:System.out.println("Invalid Option!!!");
                 }
             }catch(Exception InputMismatchException){
                 System.out.println("Only Numerical Options are Supported Please!!!!");
