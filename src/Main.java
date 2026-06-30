@@ -19,6 +19,17 @@ public class Main {
         ticketManager.addTicket(username,new Ticket(username,contactInformation,category,description,comment,priority));
     }
 
+    static void handleUpdatingComment(TicketManager ticketManager){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.println("Enter New Comment: ");
+        String newComment = scanner.nextLine();
+        ticketManager.updateTicketComment(username,newComment);
+    }
+
+
+
 
     static void screen(){
         System.out.println("1. To Add a Ticket");
@@ -43,23 +54,11 @@ public class Main {
                 if(option==1){
                     handleAddingTicket(ticketManager);
                 } else if (option==2) {
-                    System.out.println("Enter username: ");
-                    String username = scanner.nextLine();
-                    System.out.println("Enter New Comment: ");
-                    String newComment = scanner.nextLine();
-                    ticketManager.updateTicketComment(username,newComment);
+                    handleUpdatingComment(ticketManager);
                 } else if (option==3) {
-                    System.out.println("Enter username: ");
-                    String username = scanner.nextLine();
-                    System.out.println("Enter New Status: ");
-                    String newStatus = scanner.nextLine();
-                    ticketManager.updateTicketStatus(username,newStatus);
+                    handleUpdatingStatus(ticketManager);
                 } else if (option==4) {
-                    System.out.println("Enter username: ");
-                    String username = scanner.nextLine();
-                    System.out.println("Enter New Priority: ");
-                    String newPriority = scanner.nextLine();
-                    ticketManager.updateTicketPriority(username,newPriority);
+                    handleUpdatingPriority(ticketManager);
                 } else if (option==5) {
                     System.out.println("Enter username: ");
                     String username = scanner.nextLine();
