@@ -37,6 +37,15 @@ public class Main {
         ticketManager.updateTicketStatus(username,newStatus);
     }
 
+    static void handleUpdatingPriority(TicketManager ticketManager){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.println("Enter New Priority: ");
+        String newPriority = scanner.nextLine();
+        ticketManager.updateTicketPriority(username,newPriority);
+    }
+
 
 
 
