@@ -106,8 +106,6 @@ class TicketManager{
         }
     }
 
-
-
     public void searchTicketStatus(String status){
         for(String username : ticketHashMap.keySet()){
             if(ticketHashMap.get(username).getStatus().strip().equalsIgnoreCase(status.strip())){
@@ -116,7 +114,6 @@ class TicketManager{
         }
 
     }
-
 
     public void updateTicketComment(String username, String newComment){
         if(ticketHashMap.containsKey(username.strip().toLowerCase())){
@@ -136,7 +133,6 @@ class TicketManager{
         }
     }
 
-
     public void updateTicketPriority(String username, String newPriority){
         if(ticketHashMap.containsKey(username.strip().toLowerCase())){
             ticketHashMap.get(username.strip().toLowerCase()).setPriority(newPriority);
@@ -145,7 +141,6 @@ class TicketManager{
             System.out.println("Username Unknow......");
         }
     }
-
 
     public void viewTickets(){
         for(String username : ticketHashMap.keySet()){

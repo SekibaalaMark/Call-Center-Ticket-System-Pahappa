@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main {
 
     static void handleAddingTicket(TicketManager ticketManager){
@@ -78,12 +77,6 @@ public class Main {
         ticketManager.viewTickets();
     }
 
-
-
-
-
-
-
     static void screen(){
         System.out.println("1. To Add a Ticket");
         System.out.println("2. To Update a Comment");
@@ -99,7 +92,6 @@ public class Main {
 
     static void options( TicketManager ticketManager){
         Scanner scanner = new Scanner(System.in);
-
         menuLoop:
         while(true){
             screen();
@@ -126,9 +118,6 @@ public class Main {
         }
         scanner.close();
     }
-
-
-
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
