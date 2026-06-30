@@ -1,7 +1,6 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+
 
 class Ticket {
     private String username;
@@ -75,6 +74,7 @@ class TicketManager{
     public void addTicket(String username,Ticket ticket){
         if(!ticketHashMap.containsKey(username.strip().toLowerCase())){
             ticketHashMap.put(username.strip().toLowerCase(),ticket);
+            System.out.println("Ticket Added Successfully.....");
         }else{
             System.out.println("Username already Exists");
         }
@@ -83,6 +83,7 @@ class TicketManager{
     public void deleteTicket(String username){
         if(ticketHashMap.containsKey(username.strip().toLowerCase())){
             ticketHashMap.remove(username.strip().toLowerCase());
+            System.out.println("Ticket deleted successfully");
         }else{
             System.out.println("username Unknown");
         }
@@ -120,6 +121,7 @@ class TicketManager{
     public void updateTicketComment(String username, String newComment){
         if(ticketHashMap.containsKey(username.strip().toLowerCase())){
             ticketHashMap.get(username.strip().toLowerCase()).setComment(newComment);
+            System.out.println("Comment Updated Successfully");
         }else{
             System.out.println("Username Unknown....");
         }
@@ -128,6 +130,7 @@ class TicketManager{
     public void updateTicketStatus(String username , String newStatus){
         if(ticketHashMap.containsKey(username.strip().toLowerCase())){
             ticketHashMap.get(username.strip().toLowerCase()).setStatus(newStatus);
+            System.out.println("Status updated successfully....");
         }else{
             System.out.println("Username Unknown......");
         }
@@ -137,6 +140,7 @@ class TicketManager{
     public void updateTicketPriority(String username, String newPriority){
         if(ticketHashMap.containsKey(username.strip().toLowerCase())){
             ticketHashMap.get(username.strip().toLowerCase()).setPriority(newPriority);
+            System.out.println("Priority updated Successfully.....");
         }else {
             System.out.println("Username Unknow......");
         }
