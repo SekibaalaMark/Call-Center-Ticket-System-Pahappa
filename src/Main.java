@@ -2,6 +2,24 @@ import java.util.Scanner;
 
 public class Main {
 
+    static void handleAddingTicket(TicketManager ticketManager){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.println("Enter Contact Information: ");
+        String contactInformation = scanner.nextLine();
+        System.out.println("Enter Category: ");
+        String category = scanner.nextLine();
+        System.out.println("Enter Description: ");
+        String description = scanner.nextLine();
+        System.out.println("Enter Comment: ");
+        String comment = scanner.nextLine();
+        System.out.println("Enter Priority: ");
+        String priority = scanner.nextLine();
+        ticketManager.addTicket(username,new Ticket(username,contactInformation,category,description,comment,priority));
+    }
+
+
     static void screen(){
         System.out.println("1. To Add a Ticket");
         System.out.println("2. To Update a Comment");
@@ -23,19 +41,7 @@ public class Main {
                 int option = scanner.nextInt();
                 scanner.nextLine();
                 if(option==1){
-                    System.out.println("Enter username: ");
-                    String username = scanner.nextLine();
-                    System.out.println("Enter Contact Information: ");
-                    String contactInformation = scanner.nextLine();
-                    System.out.println("Enter Category: ");
-                    String category = scanner.nextLine();
-                    System.out.println("Enter Description: ");
-                    String description = scanner.nextLine();
-                    System.out.println("Enter Comment: ");
-                    String comment = scanner.nextLine();
-                    System.out.println("Enter Priority: ");
-                    String priority = scanner.nextLine();
-                    ticketManager.addTicket(username,new Ticket(username,contactInformation,category,description,comment,priority));
+                    handleAddingTicket(ticketManager);
                 } else if (option==2) {
                     System.out.println("Enter username: ");
                     String username = scanner.nextLine();
@@ -84,6 +90,8 @@ public class Main {
         }
         scanner.close();
     }
+
+
 
 
     public static void main(String[] args) {
