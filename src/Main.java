@@ -28,6 +28,16 @@ public class Main {
         ticketManager.updateTicketComment(username,newComment);
     }
 
+    static void handleUpdatingStatus(TicketManager ticketManager){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.println("Enter New Status: ");
+        String newStatus = scanner.nextLine();
+        ticketManager.updateTicketStatus(username,newStatus);
+    }
+
+
 
 
 
