@@ -53,6 +53,13 @@ public class Main {
         ticketManager.searchTicketByUsername(username);
     }
 
+    static void searchTicketByCategory(TicketManager ticketManager){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Category: ");
+        String category = scanner.nextLine();
+        ticketManager.searchTicketByCategory(category);
+    }
+
 
 
 
@@ -90,7 +97,7 @@ public class Main {
                 } else if (option==5) {
                     searchTicketByUsername(ticketManager);
                 } else if (option==6) {
-
+                    searchTicketByCategory(ticketManager);
                 } else if (option==7) {
                     System.out.println("Enter Status: ");
                     String status = scanner.nextLine();
